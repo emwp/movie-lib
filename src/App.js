@@ -1,10 +1,15 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import GlobalStyle from './global.style';
+import Navbar from './components/UI/Navbar/Navbar';
 
 const App = () => {
   return (
-    <div>
+    <Router>
+      <GlobalStyle />
+      <Navbar />
       <h1>Hello</h1>
-    </div>
+    </Router>
   );
 };
 
