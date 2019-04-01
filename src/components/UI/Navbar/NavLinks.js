@@ -11,13 +11,13 @@ const NavLinks = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/" exact className="nav-link">
+        <NavLink to="/movies" exact className="nav-link">
           Movies
         </NavLink>
       </li>
       <li>
-        <NavLink to="/" exact className="nav-link">
-          TV Shows
+        <NavLink to="/series" exact className="nav-link">
+          Series
         </NavLink>
       </li>
     </NavLinksWrapper>
@@ -31,22 +31,23 @@ const NavLinksWrapper = styled.ul`
   margin: 0 0 0 2rem;
   padding: 0;
   list-style: none;
+  justify-content: center;
+  align-content: center;
 
   .nav-link {
+    color: #263238;
     margin: 0 1rem;
-    color: #fe6756;
-    background: white;
     text-decoration: none;
-    border: 2px solid #fe6756;
+    border: 2px solid #263238;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 1rem;
     display: inline-block;
   }
   .nav-link:hover,
   .hvr-grow:focus,
   .nav-link:active,
   .nav-link.active {
-    background: #fe6756;
-    color: white;
+    background: #263238;
+    color: #dddddd;
   }
 `;

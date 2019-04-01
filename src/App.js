@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import GlobalStyle from './global.style';
+import GlobalStyle from './utils/styles/global.style';
+import Content from './utils/styles/content.style';
 import Navbar from './components/UI/Navbar/Navbar';
 
 const App = () => {
@@ -8,7 +9,9 @@ const App = () => {
     <Router>
       <GlobalStyle />
       <Navbar />
-      <h1>Hello</h1>
+      <Content>
+        <p>Hello</p>
+      </Content>
     </Router>
   );
 };

@@ -16,5 +16,9 @@ const NavWrapper = styled.nav`
   position: fixed;
   left: 0;
   top: 0;
-  height: 3.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 `;
