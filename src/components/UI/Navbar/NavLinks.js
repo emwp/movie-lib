@@ -16,7 +16,7 @@ const NavLinks = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/series" exact className="nav-link">
+        <NavLink to="/series" exact className="nav-link nav-last">
           Series
         </NavLink>
       </li>
@@ -31,18 +31,24 @@ const NavLinksWrapper = styled.ul`
   margin: 0 0 0 2rem;
   padding: 0;
   list-style: none;
-  justify-content: center;
   align-content: center;
+
+  li {
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+  }
 
   .nav-link {
     color: #263238;
-    margin: 0 1rem;
+    margin-right: 1rem;
     text-decoration: none;
     border: 2px solid #263238;
     padding: 5px 10px;
     border-radius: 1rem;
     display: inline-block;
   }
+
   .nav-link:hover,
   .hvr-grow:focus,
   .nav-link:active,
