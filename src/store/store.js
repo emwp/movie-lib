@@ -1,18 +1,24 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
+import mySaga from './sagas/saga';
 import rootReducer from './reducers/index';
 
 const initialState = {};
 
-const middleware = [thunk];
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware();
 
+// mount it on the Store
 const store = createStore(
   rootReducer,
   initialState,
   compose(
-    applyMiddleware(...middleware),
+    applyMiddleware(sagaMiddleware),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   ),
 );
+
+// run the saga
+sagaMiddleware.run(mySaga);
 
 export default store;
