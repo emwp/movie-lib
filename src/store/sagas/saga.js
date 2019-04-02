@@ -1,10 +1,11 @@
-import { put, takeEvery, delay } from 'redux-saga/effects';
+import { takeEvery, delay } from 'redux-saga/effects';
+import { GET_TITLES } from '../actions/types';
 
-export function* incrementAsync() {
+export function* getTitles() {
   yield delay(1000);
-  yield put({ type: 'INCREMENT' });
+  console.log('Fetching Movies from the Movie DB');
 }
 
 export default function* rootSaga() {
-  yield takeEvery('INCREMENT_ASYNC', incrementAsync);
+  yield takeEvery(GET_TITLES, getTitles);
 }
