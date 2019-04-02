@@ -1,2 +1,2 @@
 export const GET_TITLES = 'GET_TITLES';
-export const SET_SIDEBAR = 'SET_SIDEBAR';
+export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';

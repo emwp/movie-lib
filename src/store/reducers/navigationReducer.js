@@ -1,4 +1,4 @@
-import { SET_SIDEBAR } from '../actions/types';
+import { TOGGLE_SIDEBAR } from '../actions/types';
 
 const initialState = {
   showSidebar: false,
@@ -6,9 +6,10 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case SET_SIDEBAR:
+    case TOGGLE_SIDEBAR:
       return {
         ...state,
+        showSidebar: true,
       };
     default:
       return state;
