@@ -6,12 +6,14 @@ import GlobalStyle from './utils/styles/global.style';
 import Content from './utils/styles/content.style';
 import Navbar from './components/UI/Navbar/Navbar';
 import Movies from './components/Movies/Movies';
+import Sidebar from './components/UI/Sidebar/Sidebar';
 
 const App = () => {
   return (
     <Provider store={store}>
       <Router>
         <GlobalStyle />
+        <Sidebar />
         <Navbar />
         <Content>
           <Movies />
