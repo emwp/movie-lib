@@ -1,20 +1,7 @@
-import { GET_TITLES } from '../actions/types';
+import { GET_TITLES, SET_TITLES } from '../actions/types';
 
 const initialState = {
-  titles: [
-    {
-      id: 1,
-      name: 'Mad Max: Fury Road',
-      year: '2015',
-      genre: 'Action',
-    },
-    {
-      id: 2,
-      name: 'Star Wars: The Force Awakens',
-      year: '2015',
-      genre: 'Sci-Fi',
-    },
-  ],
+  titles: [],
 };
 
 export default function(state = initialState, action) {
@@ -22,6 +9,11 @@ export default function(state = initialState, action) {
     case GET_TITLES:
       return {
         ...state,
+      };
+    case SET_TITLES:
+      return {
+        ...state,
+        titles: action.movies,
       };
     default:
       return state;

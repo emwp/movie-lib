@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-const api = axios.create({
+export default axios.create({
   baseURL: 'https://api.themoviedb.org/3',
   params: {
-    api_key: process.env.API_KEY,
+    api_key: process.env.REACT_APP_API,
   },
 });
-
-export default api;

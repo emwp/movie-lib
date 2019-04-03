@@ -1,26 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getTitles } from '../../store/actions/actions';
 
 const Movies = ({ getTitles, titles }) => {
+  useEffect(() => {
+    getTitles();
+  }, []);
+
   let showMovies = titles.map(title => (
     <div key={title.id}>
-      <h1>Movie: {title.name}</h1>
-      <p>Year: {title.year}</p>
-      <p>Genre: {title.genre}</p>
+      <h3>{title.title}</h3>
+      <p>Release Date: {new Date(title.release_date).toLocaleDateString('pt-BR')}</p>
     </div>
   ));
 
-  const getTitlesHandler = () => {
-    getTitles();
-  };
-
-  return (
-    <React.Fragment>
-      {showMovies}
-      <button onClick={getTitlesHandler}>Get Titles</button>
-    </React.Fragment>
-  );
+  return <React.Fragment>{showMovies}</React.Fragment>;
 };
 
 const mapDispatchToProps = dispacth => ({

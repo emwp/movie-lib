@@ -4,4 +4,9 @@ const getTitles = () => ({
   type: ActionTypes.GET_TITLES,
 });
 
-export { getTitles };
+const setTitles = movies => ({
+  type: ActionTypes.SET_TITLES,
+  movies,
+});
+
+export { getTitles, setTitles };
