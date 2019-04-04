@@ -7,8 +7,11 @@ const Carousel = () => {
     dots: true,
     infinite: true,
     speed: 500,
+    swipeToSlide: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
@@ -39,7 +42,32 @@ const Carousel = () => {
 
 export default Carousel;
 
+// CUSTOM NEXT/PREV ARROWS FOR CAROUSEL
+
+const NextArrow = props => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'red' }}
+      onClick={onClick}
+    />
+  );
+};
+
+const PrevArrow = props => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'green' }}
+      onClick={onClick}
+    />
+  );
+};
+
+// STYLES
+
 const SliderWrapper = styled.div`
   color: red;
-  background: green;
 `;

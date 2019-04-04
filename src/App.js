@@ -7,6 +7,7 @@ import Content from './utils/styles/content.style';
 import Navbar from './components/UI/Navbar/Navbar';
 import Movies from './components/Movies/Movies';
 import Sidebar from './components/UI/Sidebar/Sidebar';
+import Carousel from './components/Movies/Carousel/Carousel';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Sidebar />
         <Navbar />
         <Content>
+          <Carousel />
           <Movies />
         </Content>
       </Router>
