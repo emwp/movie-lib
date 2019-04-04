@@ -2,6 +2,7 @@ import { GET_TITLES, SET_TITLES } from '../actions/types';
 
 const initialState = {
   titles: [],
+  baseURL: 'https://image.tmdb.org/t/p/w200',
 };
 
 export default function(state = initialState, action) {

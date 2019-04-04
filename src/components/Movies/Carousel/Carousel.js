@@ -1,43 +1,37 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 
-const Carousel = () => {
+const Carousel = props => {
+  const sliderRef = useRef();
+
+  let [totalSlides, setTotalSlides] = useState(null);
+
+  useEffect(() => {
+    findSlidesLimit();
+  }, []);
+
+  const findSlidesLimit = () => {
+    let slidesNumber = sliderRef.current.clientWidth;
+    console.log(sliderRef.current);
+    slidesNumber = Math.floor(slidesNumber / 200);
+    setTotalSlides((totalSlides = slidesNumber));
+  };
+
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
-    swipeToSlide: true,
-    slidesToShow: 1,
+    slidesToShow: totalSlides,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
 
   return (
-    <SliderWrapper>
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-      </Slider>
+    <SliderWrapper ref={sliderRef}>
+      <Slider {...settings}>{props.children}</Slider>
     </SliderWrapper>
   );
 };
@@ -85,5 +79,5 @@ export default Carousel;
 // STYLES
 
 const SliderWrapper = styled.div`
-  background: #a9a9a9;
+  /* background: #a9a9a9; */
 `;

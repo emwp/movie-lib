@@ -1,20 +1,24 @@
 import React, { useEffect } from 'react';
+import Carousel from './Carousel/Carousel';
 import { connect } from 'react-redux';
 import { getTitles } from '../../store/actions/actions';
 
-const Movies = ({ getTitles, titles }) => {
+const Movies = ({ getTitles, titles, baseURL }) => {
   useEffect(() => {
     getTitles();
   }, []);
 
   let showMovies = titles.map(title => (
     <div key={title.id}>
-      <h3>{title.title}</h3>
-      <p>Release Date: {new Date(title.release_date).toLocaleDateString('pt-BR')}</p>
+      <img src={baseURL + title.poster_path} alt={title.title} />
     </div>
   ));
 
-  return <React.Fragment>{showMovies}</React.Fragment>;
+  return (
+    <React.Fragment>
+      <Carousel>{showMovies}</Carousel>
+    </React.Fragment>
+  );
 };
 
 const mapDispatchToProps = dispacth => ({
@@ -23,6 +27,7 @@ const mapDispatchToProps = dispacth => ({
 
 const mapStateToProps = state => ({
   titles: state.movies.titles,
+  baseURL: state.movies.baseURL,
 });
 
 export default connect(
