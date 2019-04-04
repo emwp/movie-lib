@@ -1,6 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 
 const Carousel = () => {
   const settings = {
@@ -40,34 +42,48 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
-
 // CUSTOM NEXT/PREV ARROWS FOR CAROUSEL
 
-const NextArrow = props => {
-  const { className, style, onClick } = props;
+const NextArrow = ({ onClick }) => {
   return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', background: 'red' }}
+    <FontAwesomeIcon
+      style={{
+        right: '-20px',
+        position: 'absolute',
+        top: '50%',
+        width: '16px',
+        height: '16px',
+        transform: 'translate(0, -50%)',
+        cursor: 'pointer',
+      }}
       onClick={onClick}
+      icon={faAngleDoubleRight}
     />
   );
 };
 
-const PrevArrow = props => {
-  const { className, style, onClick } = props;
+const PrevArrow = ({ onClick }) => {
   return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', background: 'green' }}
+    <FontAwesomeIcon
+      style={{
+        left: '-20px',
+        position: 'absolute',
+        top: '50%',
+        width: '16px',
+        height: '16px',
+        transform: 'translate(0, -50%)',
+        cursor: 'pointer',
+      }}
       onClick={onClick}
+      icon={faAngleDoubleLeft}
     />
   );
 };
+
+export default Carousel;
 
 // STYLES
 
 const SliderWrapper = styled.div`
-  color: red;
+  background: #a9a9a9;
 `;
