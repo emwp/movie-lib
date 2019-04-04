@@ -8,6 +8,7 @@ const Carousel = props => {
   const sliderRef = useRef();
 
   let [totalSlides, setTotalSlides] = useState(null);
+  let [centerMode, setCenterMode] = useState(false);
 
   useEffect(() => {
     findSlidesLimit();
@@ -15,7 +16,9 @@ const Carousel = props => {
 
   const findSlidesLimit = () => {
     let slidesNumber = sliderRef.current.clientWidth;
-    console.log(sliderRef.current);
+    if (slidesNumber <= 780) {
+      setCenterMode((centerMode = true));
+    }
     slidesNumber = Math.floor(slidesNumber / 200);
     setTotalSlides((totalSlides = slidesNumber));
   };
@@ -23,6 +26,7 @@ const Carousel = props => {
   const settings = {
     infinite: true,
     speed: 500,
+    centerMode: centerMode,
     slidesToShow: totalSlides,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
@@ -78,6 +82,4 @@ export default Carousel;
 
 // STYLES
 
-const SliderWrapper = styled.div`
-  /* background: #a9a9a9; */
-`;
+const SliderWrapper = styled.div``;
