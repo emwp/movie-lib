@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Carousel from './Carousel/Carousel';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { getTitles } from '../../store/actions/actions';
 
@@ -8,14 +9,23 @@ const Movies = ({ getTitles, titles, baseURL }) => {
     getTitles();
   }, []);
 
+  const selectMovieHandler = id => {
+    console.log(id);
+  };
+
   let showMovies = titles.map(title => (
-    <div key={title.id}>
-      <img src={baseURL + title.poster_path} alt={title.title} />
-    </div>
+    <CarouselWrapper key={title.id}>
+      <img
+        src={baseURL + title.poster_path}
+        alt={title.title}
+        onClick={() => selectMovieHandler(title.id)}
+      />
+    </CarouselWrapper>
   ));
 
   return (
     <React.Fragment>
+      <h2>Trending Movies</h2>
       <Carousel>{showMovies}</Carousel>
     </React.Fragment>
   );
@@ -34,3 +44,11 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Movies);
+
+// --- Styles --- //
+
+const CarouselWrapper = styled.div`
+  img {
+    cursor: pointer;
+  }
+`;
